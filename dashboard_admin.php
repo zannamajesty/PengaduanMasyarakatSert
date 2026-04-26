@@ -9,6 +9,12 @@ if (empty($id_p)) {
 include 'koneksi.php';
 include 'header_admin.php';
 
+if (!($koneksi instanceof mysqli)) {
+  http_response_code(500);
+  die('Koneksi database tidak valid.');
+}
+/** @var mysqli $koneksi */
+
 $belum_diproses = mysqli_query($koneksi, "SELECT ID_PENGADUAN FROM pengaduan WHERE STATUS_PENGADUAN='Belum diproses'");
 $dalam_proses = mysqli_query($koneksi, "SELECT ID_PENGADUAN FROM pengaduan WHERE STATUS_PENGADUAN='Dalam proses'");
 $selesai = mysqli_query($koneksi, "SELECT ID_PENGADUAN FROM pengaduan WHERE STATUS_PENGADUAN='Selesai'");

@@ -18,6 +18,7 @@ if ($envUser !== false) {
 $candidates[] = ['root', ''];
 $candidates[] = ['root', 'root'];
 
+/** @var mysqli|null $koneksi */
 $koneksi = null;
 $lastError = '';
 
@@ -46,4 +47,5 @@ if (!$koneksi) {
 	);
 }
 
+/** @var mysqli $koneksi */
 mysqli_set_charset($koneksi, 'utf8mb4');

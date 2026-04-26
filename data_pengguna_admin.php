@@ -8,6 +8,12 @@ if (empty($id_p)) {
 
 include 'koneksi.php';
 include 'header_admin.php';
+
+if (!($koneksi instanceof mysqli)) {
+  http_response_code(500);
+  die('Koneksi database tidak valid.');
+}
+/** @var mysqli $koneksi */
 ?>
 
 <section id="book-a-table" class="book-a-table" style="padding-top: 120px;">
